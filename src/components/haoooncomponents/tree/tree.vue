@@ -15,9 +15,9 @@
 export default {
   name: 'tree',
   // el: '#tree',
-  props: {
-    item: treeData
-  },
+  props: [
+    "treeData"
+  ],
   data(){
     return{
       

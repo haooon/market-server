@@ -4,13 +4,13 @@
       :class="{bold: isFolder}"
       @click="toggle"
       @dblclick="makeFolder">
-      {{ item.name }}
+      {{ item.info.name }}
       <span v-if="isFolder">[{{ isOpen ? '-' : '+' }}]</span>
     </div>
     <ul v-show="isOpen" v-if="isFolder">
       <tree-item
         class="item"
-        v-for="(child, index) in item.children"
+        v-for="(child, index) in item.info.kids"
         :key="index"
         :item="child"
         @make-folder="$emit('make-folder', $event)"
@@ -34,8 +34,9 @@ export default {
   },
   computed: {
     isFolder: function () {
-      return this.item.children &&
-        this.item.children.length
+      console.log(this.item)
+      return this.item.info.kids &&
+        this.item.info.kids.length
     }
   },
   methods: {
@@ -50,6 +51,9 @@ export default {
         this.isOpen = true
       }
     }
+  },
+  mounted:function(){
+    console.log(this.item)
   }
 }
 </script>

@@ -2,6 +2,7 @@
   <div class="hello">
   	<p>(You can double click on an item to turn it into a folder.)</p>
     <tree :tree-data="treeData"></tree>
+    <h1>{{msg}}</h1>
   </div>
 </template>
 
@@ -11,34 +12,37 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      treeData: {
-        name: 'My Tree',
-        children: [
-          { name: 'hello' },
-          { name: 'wat' },
-          {
-            name: 'child folder',
-            children: [
-              {
-                name: 'child folder',
-                children: [
-                  { name: 'hello' },
-                  { name: 'wat' }
-                ]
-              },
-              { name: 'hello' },
-              { name: 'wat' },
-              {
-                name: 'child folder',
-                children: [
-                  { name: 'hello' },
-                  { name: 'wat' }
-                ]
-              }
-            ]
-          }
-        ]
-      },
+      // treeData: {
+      //   name: 'My Tree',
+      //   children: [
+      //     { name: 'hello' },
+      //     { name: 'wat' },
+      //     {
+      //       name: 'child folder',
+      //       children: [
+      //         {
+      //           name: 'child folder',
+      //           children: [
+      //             { name: 'hello' },
+      //             { name: 'wat' }
+      //           ]
+      //         },
+      //         { name: 'hello' },
+      //         { name: 'wat' },
+      //         {
+      //           name: 'child folder',
+      //           children: [
+      //             { name: 'hello' },
+      //             { name: 'wat' }
+      //           ]
+      //         }
+      //       ]
+      //     }
+      //   ]
+      // },
+      treeData: {'info': {'name': 'main', 'status': 'RUNNING', 'health': 100, 'kids': [{'info': {'name': 'task manager', 'status': 'RUNNING', 'health': 100, 'kids': [], 'key': '6d49ca58-cbfb-11e9-92aa-14dda955824f'}}, {'info': {'name': 'quartzTest', 'status': 'RUNNING', 'health': 100, 'kids': [{'info': {'name': 'TestTasks', 'status': 'RUNNING', 'health': 100, 'kids': [], 'key': '6d4b9e94-cbfb-11e9-9957-14dda955824f'}}], 'key': '6d49ca59-cbfb-11e9-8285-14dda955824f'}}]}}
+
+,
     }
   },
   mounted(){
