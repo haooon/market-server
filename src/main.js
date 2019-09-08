@@ -4,10 +4,14 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import haooon from './haooon.js'
+import Promise from "promise-polyfill";
 
 Vue.use(haooon)
 Vue.config.productionTip = false
-
+// fetch
+if(!window.Promise){
+    window.Promise = Promise;
+}
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

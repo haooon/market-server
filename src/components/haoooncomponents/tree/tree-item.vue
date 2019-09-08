@@ -34,7 +34,6 @@ export default {
   },
   computed: {
     isFolder: function () {
-      console.log(this.item)
       return this.item.info.kids &&
         this.item.info.kids.length
     }
@@ -53,7 +52,6 @@ export default {
     }
   },
   mounted:function(){
-    console.log(this.item)
   }
 }
 </script>

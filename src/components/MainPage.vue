@@ -40,12 +40,23 @@ export default {
       //     }
       //   ]
       // },
-      treeData:{'info': {'name': 'main', 'status': 'RUNNING', 'health': 100, 'kids': [{'info': {'name': 'quartzTest', 'status': 'RUNNING', 'health': 0, 'kids': [{'info': {'name': 'TestTasks', 'status': 'RUNNING', 'health': 100.0, 'kids': [{'info': {'name': 'Trrrs', 'status': 'RUNNING', 'health': 100, 'kids': [], 'key': 'f7250e45-d076-11e9-bd51-9801a79f6ec1', 'father': 'f7250e42-d076-11e9-9156-9801a79f6ec1'}}, {'info': {'name': 'Trrrs', 'status': 'RUNNING', 'health': 100, 'kids': [], 'key': 'f7250e45-d076-11e9-bd51-9801a79f6ec1', 'father': 'f7250e42-d076-11e9-9156-9801a79f6ec1'}}, {'info': {'name': 'Trrrs', 'status': 'RUNNING', 'health': 100, 'kids': [], 'key': 'f7250e45-d076-11e9-bd51-9801a79f6ec1', 'father': 'f7250e42-d076-11e9-9156-9801a79f6ec1'}}], 'key': 'f7250e42-d076-11e9-9156-9801a79f6ec1', 'father': 'f724fab0-d076-11e9-ac70-9801a79f6ec1'}}, {'info': {'name': 'Trrrs', 'status': 'RUNNING', 'health': 100, 'kids': [], 'key': 'f7250e45-d076-11e9-bd51-9801a79f6ec1', 'father': 'f7250e42-d076-11e9-9156-9801a79f6ec1'}}, {'info': {'name': 'TestTasks', 'status': 'RUNNING', 'health': 100.0, 'kids': [{'info': {'name': 'Trrrs', 'status': 'RUNNING', 'health': 100, 'kids': [], 'key': 'f7250e45-d076-11e9-bd51-9801a79f6ec1', 'father': 'f7250e42-d076-11e9-9156-9801a79f6ec1'}}, {'info': {'name': 'Trrrs', 'status': 'RUNNING', 'health': 100, 'kids': [], 'key': 'f7250e45-d076-11e9-bd51-9801a79f6ec1', 'father': 'f7250e42-d076-11e9-9156-9801a79f6ec1'}}, {'info': {'name': 'Trrrs', 'status': 'RUNNING', 'health': 100, 'kids': [], 'key': 'f7250e45-d076-11e9-bd51-9801a79f6ec1', 'father': 'f7250e42-d076-11e9-9156-9801a79f6ec1'}}], 'key': 'f7250e42-d076-11e9-9156-9801a79f6ec1', 'father': 'f724fab0-d076-11e9-ac70-9801a79f6ec1'}}], 'key': 'f724fab0-d076-11e9-ac70-9801a79f6ec1'}}]}},
+      treeData:{"info":{"father":"9de3d635-d172-11e9-8a65-14dda955824f","health":100,"key":"9de3d638-d172-11e9-ba2c-14dda955824f","kids":[],"name":"Trrrs","status":"RUNNING"}},
+    }
+  },
+  methods: {
+    get_data(){
+      fetch(GATEWAY + "/task", {method: 'GET'}) 
+      .then(response => response.json())
+      .then(data => {
+        this.treeData = data
+      })
     }
   },
   mounted(){
+    this.get_data()
   }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
