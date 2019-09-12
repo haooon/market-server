@@ -11,5 +11,5 @@ const haooon = {
   }
 }
 use(haooon)
-window.GATEWAY = "http://127.0.0.1:8090"
+window.GATEWAY = "http://127.0.0.1:8888"
 export default haooon

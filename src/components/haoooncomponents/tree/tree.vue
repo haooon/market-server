@@ -3,7 +3,7 @@
     <ul id="tree">
       <tree-item
         class="item"
-        :item="treeData"
+        :item.sync="treeData"
         @make-folder="makeFolder"
         @add-item="addItem"
       ></tree-item>
@@ -24,6 +24,9 @@ export default {
     }
   },
   methods: {
+    setTreeData: function (data) {
+      this.treeData = data
+    },
     makeFolder: function (item) {
       Vue.set(item, 'children', [])
       this.addItem(item)

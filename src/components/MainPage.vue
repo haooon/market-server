@@ -1,8 +1,9 @@
 <template>
   <div class="hello">
-  	<p>(You can double click on an item to turn it into a folder.)</p>
-    <tree :tree-data="treeData"></tree>
-    <h1>{{msg}}</h1>
+    <a @click="run">(You can click here to run tasks on Server)</a>
+  	<p class="common">(You can double click on an item to turn it into a folder.)</p>
+    <tree :tree-data.sync="treeData"></tree>
+    <div class="black">{{msg}}</div>
   </div>
 </template>
 
@@ -11,41 +12,24 @@ export default {
   name: 'MainPage',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      // treeData: {
-      //   name: 'My Tree',
-      //   children: [
-      //     { name: 'hello' },
-      //     { name: 'wat' },
-      //     {
-      //       name: 'child folder',
-      //       children: [
-      //         {
-      //           name: 'child folder',
-      //           children: [
-      //             { name: 'hello' },
-      //             { name: 'wat' }
-      //           ]
-      //         },
-      //         { name: 'hello' },
-      //         { name: 'wat' },
-      //         {
-      //           name: 'child folder',
-      //           children: [
-      //             { name: 'hello' },
-      //             { name: 'wat' }
-      //           ]
-      //         }
-      //       ]
-      //     }
-      //   ]
-      // },
-      treeData:{"info":{"father":"9de3d635-d172-11e9-8a65-14dda955824f","health":100,"key":"9de3d638-d172-11e9-ba2c-14dda955824f","kids":[],"name":"Trrrs","status":"RUNNING"}},
+      msg: 'Smart Tasks Surveillance Centre(STSC)     Get problems? ==> contact email:shr@haooon.com',
+      treeData:{"info":{"father":"9de3d635-d172-11e9-8a65-14dda955824f","health":100,"key":"9de3d638-d172-11e9-ba2c-14dda955824f","kids":[],"name":"STSC","status":"RUNNING"}},
     }
   },
   methods: {
+    setTreeData(data){
+      console.log("setTreeData")
+      this.treeData = data
+    },
     get_data(){
       fetch(GATEWAY + "/task", {method: 'GET'}) 
+      .then(response => response.json())
+      .then(data => {
+        this.treeData = data
+      })
+    },
+    run(){
+      fetch(GATEWAY + "/run", {method: 'GET'}) 
       .then(response => response.json())
       .then(data => {
         this.treeData = data
@@ -58,8 +42,6 @@ export default {
 }
 
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .hello{
 	background-color: black;
@@ -68,6 +50,10 @@ export default {
 }
 h1, h2 {
   font-weight: normal;
+  color: black;
+}
+.common {
+  color:#eaeaea;
 }
 li {
   display: inline-block;
@@ -75,5 +61,8 @@ li {
 }
 a {
   color: #42b983;
+}
+.black{
+  color: black;
 }
 </style>
