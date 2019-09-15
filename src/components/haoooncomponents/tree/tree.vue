@@ -2,6 +2,7 @@
   <div>
     <ul id="tree">
       <tree-item
+        :info.sync="infoData"
         class="item"
         :item.sync="treeData"
         @make-folder="makeFolder"
@@ -16,12 +17,14 @@ export default {
   name: 'tree',
   // el: '#tree',
   props: [
-    "treeData"
+    "treeData",
   ],
   data(){
     return{
-      
+      infoData:{},
     }
+  },
+  watch: {
   },
   methods: {
     setTreeData: function (data) {
