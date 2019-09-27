@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <img class="logo" @click="$router.push('MainPage')" src="./assets/logo.png">
+    <img class="logo" @click="$router.push('TestPage')" src="./assets/test.png">
     <router-view/>
   </div>
 </template>
